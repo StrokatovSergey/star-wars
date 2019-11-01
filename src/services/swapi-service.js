@@ -1,5 +1,3 @@
-import { transform } from "@babel/core";
-
 export default class SwapiService {
 
   _apiBase = 'https://swapi.co/api';
@@ -30,7 +28,7 @@ export default class SwapiService {
   }
 
   async getPlanet(id) {
-    const planet =  await this.getResource(`/planets/${id}/`);
+    const planet = await this.getResource(`/planets/${id}/`);
     return this._transformPlanet(planet);
   }
 
@@ -82,18 +80,4 @@ export default class SwapiService {
       eyeColor: person.eyeColor
     }
   }
-
-
-  _transformPlanet(planet){
-    return {
-      name: planet.name,
-      population: planet.population,
-      rotationPeriod: planet.rotation_period,
-      diameter: planet.diameter
-    }
-  }
-
-
 }
-
-
